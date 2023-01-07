@@ -14,13 +14,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <div>Snankes</div>
-      </header>
-      <Stage />
-      <footer>
-        <div>Footer</div>
-      </footer>
+      <div className='main'>
+        <div>
+          <div>Snankes</div>
+        </div>
+        <Stage />
+        <div>
+          <div>Footer</div>
+        </div>
+      </div>
     </>
   )
 }

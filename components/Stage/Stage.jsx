@@ -1,42 +1,48 @@
-import { useEffect, useState, useRef } from "react";
-import { initPlayers } from "./player";
+import { useEffect, useRef, useReducer } from "react";
+import { playReducer } from "./play-reducer";
+import Worm from "./Worm";
+
+const initialState = {
+    players: [{
+        currentWord: '',
+        id: 1,
+        name: 'player1',
+        words: ['hello', 'world', 'foo', 'bar'],
+        position: {
+            x: 100,
+            y: 200,
+        },
+    }]
+    };
 
 const Stage = (props) => {
     const stageEl = useRef(null);
-    const [players, setPlayers] = useState(initPlayers(4));
-    const height = null, width = null;  
-    useEffect(()=>{
-        setTimeout(()=>{
-            const rect = stageEl.current.getClientRects();
-            console.log(rect);
-            setPlayers([
-                {
-                    ...players[0],
-                    position: {
-                        x: players[0].position.x + 10 ,
-                        y: players[0].position.y + 10
-                    }
-                    
-                }
-            ]
-            )
-        },1000); 
-    },[players]);
+    const [state, dispatch] = useReducer(playReducer, initialState);
+    const height = null, width = null;
+    const { players } = state;
+    const [player1] = players;
+
+    useEffect(() => {
+        setTimeout(() => {
+            console.log("stageEl", stageEl.current);
+        }, 1000);
+    }, []);
 
     return (
-        <div className="stage" ref={stageEl}>
-            {
-                players.map((player, index) => {
-                    const {position, words} = player;
-                    const {x, y} = position;
-                    return (
-                        <div className="worm" key={index} style={{left: x, top: y}}>
-                           {words.join(",")}
-                           {height}{width}
-                        </div>
-                    )
-                })   
+        <div tabIndex="0" className="stage" ref={stageEl} onKeyUp={(event)=> dispatch({
+            type: 'KEY_UP',
+            payload: {
+                event
             }
+        })}>
+            {
+                players.map((player) => {
+                    return (
+                        <Worm key={player.id} player={player} />
+                    )
+                })
+            }
+            <div style={{border: '1px solid red'}}>Current Word: {player1.currentWord}</div>
         </div>
     )
 }

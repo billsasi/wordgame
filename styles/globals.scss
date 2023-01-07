@@ -1,0 +1,43 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+#__next {
+  height: 100%;
+  width: 100%;
+
+}
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.stage {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  .worm {
+    position: absolute;
+
+    .letter {
+      position: relative;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: center;
+      width: 1em;
+      height: 1em;
+      line-height: 1em;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      margin: .1em;
+    }
+  }
+
+}
