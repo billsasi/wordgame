@@ -12,8 +12,8 @@ const initPlayers = (count) => {
       name: `player${i}`,
       words: getWords(3),
       position: {
-        x: 100 + i * 100,
-        y: 200,
+        x: 100,
+        y: 200 + i * 100,
       },
     });
   }
@@ -26,18 +26,14 @@ const initialState = {
 
 const Stage = (props) => {
   const stageEl = useRef(null);
+  const inputRef = useRef(null);
   const [state, dispatch] = useReducer(playReducer, initialState);
   const height = null,
     width = null;
   const { players } = state;
   const [player1] = players;
 
-  useEffect(() => {
-    console.log(getWords(10));
-    setTimeout(() => {
-      console.log('stageEl', stageEl.current);
-    }, 1000);
-  }, []);
+  const { currentWord } = player1;
 
   return (
     <div
@@ -46,18 +42,30 @@ const Stage = (props) => {
       ref={stageEl}
       onKeyUp={(event) =>
         dispatch({
-          type: 'KEY_UP',
+          type: 'KEY_DOWN',
           payload: {
             event,
           },
         })
       }
     >
-      {players.map((player) => {
-        return <Worm key={player.id} player={player} />;
-      })}
+      <div className="players">
+        {players.map((player) => {
+          return <Worm key={player.id} player={player} />;
+        })}
+      </div>
+
       <div style={{ border: '1px solid red' }}>
-        Current Word: {player1.currentWord}
+        Current Word:
+        <input
+          ref={inputRef}
+          value={currentWord}
+          autoFocus
+          onChange={(e) => {
+            console.log('changed!');
+            dispatch({ type: 'INPUT_CHANGE', payload: e });
+          }}
+        ></input>
       </div>
     </div>
   );
