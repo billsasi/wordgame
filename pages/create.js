@@ -5,7 +5,7 @@ import styles from './index.module.css';
 const inter = Inter({ subsets: ['latin'] });
 import dynamic from 'next/dynamic';
 
-const Stage = dynamic(() => import('../components/Stage/Stage'), {
+const Stage = dynamic(() => import('../components/Stage/.back'), {
   ssr: false,
 });
 
@@ -20,16 +20,10 @@ export default function Home() {
       </Head>
       <div className={styles.main}>
         <div className={styles.row}>
-          <h4>Joining a game?</h4>
+          <h4>Create</h4>
         </div>
        <div className={styles.row}>
-        <label className={styles.label} htmlFor="id">Enter game id: </label>
-        <input type="text" id="id" name="id" />
-        <button>Join</button>
-       </div>
-
-       <div className={styles.row}>
-        <a href='/create'>Creating a game?</a>
+       <a href='/game/1234'>Click to start game</a>
        </div>
       </div>
     </>

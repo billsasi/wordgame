@@ -1,0 +1,6 @@
+const Controller = {
+    init: function() {
+        
+    }
+
+}

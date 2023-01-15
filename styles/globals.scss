@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -27,10 +33,40 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   position: relative;
 
+  .word-shower-area-bg {
+    background-color: antiquewhite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .word {
+    position: absolute;
+    font-size: 1.3em;
+  }
+
+.word:first-child {
+    border: 2px solid orange;
+}
+
   .input-cntr {
     display: flex;
     justify-content: center;
-    padding-bottom: 200px;
+    flex: 1;
+  }
+  .forground {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: end;
   }
 
   .input {
@@ -39,10 +75,16 @@ body {
     border-bottom: 1px solid #999;
     outline: none;
     font-size: xx-large;
+    text-align: center;
+    font-weight: 100;
+    opacity: .5;
   }
 
   .players {
-    flex: 1;
+    margin: 1em;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
   }
   .worm {
     position: absolute;
