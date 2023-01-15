@@ -17,6 +17,7 @@ body {
 #__next {
   height: 100%;
   width: 100%;
+  background-color: gray;
 }
 .main {
   height: 100%;
@@ -25,7 +26,6 @@ body {
 }
 .stage {
   flex: 1;
-  background: #fff;
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
@@ -34,22 +34,21 @@ body {
   position: relative;
 
   .word-shower-area-bg {
-    background-color: antiquewhite;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    color: #fff;
   }
 
   .word {
     position: absolute;
     font-size: 1.3em;
+    text-shadow: 0px 0px 0 #cccccc, 0.18px -0.4545px 0 #c9c9c9, 0.36px -0.909px 0 #bbbbbb, 0.54px -1.3635px 0 #b9b9b9, 0.72px -1.818px 0 #aaaaaa, 0.8999999999999999px -2.2725px 0 #a9a9a9, 0px 0px 0px rgb(0 0 0 / 10%), 0.8999999999999999px -2.2725px 4px rgb(0 0 0 / 15%), 1.7999999999999998px -4.545px 8px rgb(0 0 0 / 20%), 2.6999999999999997px -6.8175px 12px rgb(0 0 0 / 20%), 3.5999999999999996px -9.09px 16px rgb(0 0 0 / 25%), 4.5px -11.3625px 20px rgb(0 0 0 / 30%);
+    transform: rotateY(-6deg) rotateX(-15.15deg);
+    color: #fff;
   }
-
-.word:first-child {
-    border: 2px solid orange;
-}
 
   .input-cntr {
     display: flex;

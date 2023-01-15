@@ -43,7 +43,7 @@ const Word = (props) => {
         return (
           <span
             key={index}
-            style={{ color: highlightLength <= index ? 'black' : 'red' }}
+            style={{ color: highlightLength <= index ? '#fff' : 'red' }}
           >
             {char}
           </span>
